@@ -16,14 +16,20 @@ module.exports = function (app) {
         return res.json({ error: 'Required field(s) missing' });
       }
 
-      if (text === "" && (locale === "american-to-british" || locale === "british-to-american")) {
+      if (text === "") {
         return res.json({ error: 'No text to translate' });
       }
 
-      if (text !== "american-to-british" || text !== "british-to-american") {
+      if (locale !== "american-to-british" || locale !== "british-to-american") {
         return res.json({ error: 'Invalid value for locale field' });
       }
 
+      let translated = translator.translate(text);
+      if (text === translated) {
+        return res.json({ translation: "Everything looks good to me!" });
+      } else {
+          return res.json({ translation: translated });
+      }
       
     });
 };
