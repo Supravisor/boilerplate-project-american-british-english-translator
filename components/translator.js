@@ -11,6 +11,10 @@ class Translator {
     let matches = string.match(new RegExp(amer.join("|"), "g"));
     let newString = string 
 
+      for (let i = 0; i < matches.length; i++) {
+        newString = newString.replace(matches[i], americanOnly[matches[i]]);
+      }
+
   }
 
 }
