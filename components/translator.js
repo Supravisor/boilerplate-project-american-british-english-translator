@@ -38,7 +38,14 @@ class Translator {
       }
 
     return newString;
+  }
 
+  brit2Amer(string) {
+    let brit = Object.keys(britishOnly);
+    let matches = string.match(new RegExp(brit.join("|"), "g"));
+    let newString = string;
+
+    return newString;
   }
 
 }
