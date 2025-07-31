@@ -5,8 +5,20 @@ const britishOnly = require('./british-only.js')
 
 class Translator {
 
-  translate(string) {
-    return string;
+  amer2Brit(string) {
+
+    let amer = Object.keys(americanOnly)
+    let amerMatches = string.match(new RegExp(amer.join("|"), "g"));
+    let newString = string 
+
+      if (amerMatches) {
+        for (let i = 0; i < amerMatches.length; i++) {
+          newString = newString.replace(amerMatches[i], americanOnly[amerMatches[i]]);
+        }
+      }
+    
+    return newString;
+
   }
 
 }
