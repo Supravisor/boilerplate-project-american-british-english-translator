@@ -13,12 +13,18 @@ class Translator {
 
       if (amerMatches) {
         for (let i = 0; i < amerMatches.length; i++) {
-          newString = newString.replace(amerMatches[i], americanOnly[amerMatches[i]]);
+          newString = newString.replace(amerMatches[i], `<span class="highlight">${americanOnly[amerMatches[i]]}</span>`);
         }
       }
 
     let amerSpell = Object.keys(americanToBritishSpelling);
     let amerSpellMatches = string.match(new RegExp(amerSpell.join("|"), "g"));
+
+      if (amerSpellMatches) {
+        for (let i = 0; i < amerSpellMatches.length; i++) {
+          newString = newString.replace(amerSpellMatches[i], `<span class="highlight">${americanToBritishSpelling[amerSpellMatches[i]]}</span>`);
+        }
+      }
 
     return newString;
 
