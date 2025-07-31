@@ -27,12 +27,12 @@ class Translator {
       }
 
     let titles = Object.keys(americanToBritishTitles)
-    let titleMatches = newString.match(new RegExp(titles.join("|"), "i", "g"));
+    let titleMatches = newString.match(new RegExp(titles.join("|"), "gi"));
 
     if (titleMatches) {
         for (let i = 0; i < titleMatches.length; i++) {
-          if (titleMatches[i].includes(".")) {
-            newString = newString.replace(titleMatches[i].toLowerCase(),  `<span class="highlight">${americanToBritishTitles[titleMatches[i]][0].toUpperCase() + americanToBritishTitles[titleMatches[i]].slice(1, 4)}</span>`);
+          if (titleMatches[i]) {
+            newString = newString.replace(titleMatches[i], `<span class="highlight">${americanToBritishTitles[titleMatches[i].toLowerCase()][0].toUpperCase()}${americanToBritishTitles[titleMatches[i].toLowerCase()].slice(1, 4)}</span>`);
           }
         }
       }
