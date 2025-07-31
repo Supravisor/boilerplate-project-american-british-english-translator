@@ -7,16 +7,19 @@ class Translator {
 
   amer2Brit(string) {
 
-    let amer = Object.keys(americanOnly)
+    let amer = Object.keys(americanOnly);
     let amerMatches = string.match(new RegExp(amer.join("|"), "g"));
-    let newString = string 
+    let newString = string;
 
       if (amerMatches) {
         for (let i = 0; i < amerMatches.length; i++) {
           newString = newString.replace(amerMatches[i], americanOnly[amerMatches[i]]);
         }
       }
-    
+
+    let amerSpell = Object.keys(americanToBritishSpelling);
+    let amerSpellMatches = string.match(new RegExp(amerSpell.join("|"), "g"));
+
     return newString;
 
   }

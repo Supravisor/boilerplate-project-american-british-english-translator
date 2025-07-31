@@ -20,16 +20,20 @@ module.exports = function (app) {
         return res.json({ error: 'No text to translate' });
       }
 
-      if (locale === undefined) {
+      if (locale === "american-to-british") {
+
+        let translated = translator.amer2Brit(text);
+        if (text === translated) {
+          return res.json({ translation: "Everything looks good to me!" });
+        } else {
+            return res.json({ translation: translated });
+        }
+      }
+
+      if (locale !== "american-to-british" || locale !== "british-to-american") {
         return res.json({ error: 'Invalid value for locale field' });
       }
 
-      let translated = translator.amer2Brit(text);
-      if (text === translated) {
-        return res.json({ translation: "Everything looks good to me!" });
-      } else {
-          return res.json({ translation: translated });
-      }
       
     });
 };
