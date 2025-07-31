@@ -27,7 +27,15 @@ class Translator {
       }
 
     let titles = Object.keys(americanToBritishTitles)
-    let titleMatches = newString.match(new RegExp(titles.join("|"), "g", "i"));
+    let titleMatches = newString.match(new RegExp(titles.join("|"), "i", "g"));
+
+    if (titleMatches) {
+        for (let i = 0; i < titleMatches.length; i++) {
+          if (titleMatches[i].includes(".")) {
+            newString = newString.replace(titleMatches[i].toLowerCase(),  `<span class="highlight">${americanToBritishTitles[titleMatches[i]][0].toUpperCase() + americanToBritishTitles[titleMatches[i]].slice(1, 4)}</span>`);
+          }
+        }
+      }
 
     return newString;
 
