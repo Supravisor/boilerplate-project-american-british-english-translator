@@ -26,6 +26,9 @@ class Translator {
         }
       }
 
+    let titles = Object.keys(americanToBritishTitles)
+    let titleMatches = newString.match(new RegExp(titles.join("|"), "g", "i"));
+
     return newString;
 
   }
