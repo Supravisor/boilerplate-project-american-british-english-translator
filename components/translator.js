@@ -8,12 +8,16 @@ class Translator {
   amer2Brit(string) {
 
     let amer = Object.keys(americanOnly)
-    let matches = string.match(new RegExp(amer.join("|"), "g"));
+    let amerMatches = string.match(new RegExp(amer.join("|"), "g"));
     let newString = string 
 
-      for (let i = 0; i < matches.length; i++) {
-        newString = newString.replace(matches[i], americanOnly[matches[i]]);
+      if (amerMatches) {
+        for (let i = 0; i < amerMatches.length; i++) {
+          newString = newString.replace(amerMatches[i], americanOnly[amerMatches[i]]);
+        }
       }
+    
+    return newString;
 
   }
 
