@@ -54,4 +54,18 @@ suite('Functional Tests', () => {
       });
   });
 
+  test('Translation with missing locale field: POST request to /api/translate', function(done) {
+    chai.request(server)
+      .post( '/api/translate' )
+      .send( {
+        "text": "Dr Jones"
+      } )
+      .end(function(err, res){
+        assert.equal(res.status, 200);
+        assert.property(res.body, 'error');
+        assert.include(res.body.error, 'Required field(s) missing');
+        done();
+      });
+  });
+
 });
