@@ -23,6 +23,18 @@ module.exports = function (app) {
       if (locale === "american-to-british") {
 
         let translated = translator.amer2Brit(text);
+
+        if (text === translated) {
+          return res.json({ translation: "Everything looks good to me!" });
+        } else {
+            return res.json({ text: text, translation: translated });
+        }
+      }
+
+      if (locale === "british-to-american") {
+
+        let translated = translator.brit2Amer(text);
+
         if (text === translated) {
           return res.json({ translation: "Everything looks good to me!" });
         } else {
@@ -34,6 +46,5 @@ module.exports = function (app) {
         return res.json({ error: 'Invalid value for locale field' });
       }
 
-      
     });
 };
