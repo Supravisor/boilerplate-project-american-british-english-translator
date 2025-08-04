@@ -39,4 +39,19 @@ suite('Functional Tests', () => {
       });
   });
 
+  test('Translation with missing text field: POST request to /api/translate', function(done) {
+    chai.request(server)
+      .post( '/api/translate' )
+      .send( {
+        "text": "",
+        "locale": "american-to-british"
+      } )
+      .end(function(err, res){
+        assert.equal(res.status, 200);
+        assert.property(res.body, 'error');
+        assert.include(res.body.error, 'No text to translate');
+        done();
+      });
+  });
+
 });
