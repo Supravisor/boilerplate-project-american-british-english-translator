@@ -50,7 +50,7 @@ class Translator {
 
   brit2Amer(string) {
     let brit = Object.keys(britishOnly);
-    let matches = string.match(new RegExp(brit.join("|"), "g"));
+    let britMatches = string.match(new RegExp(brit.join("|"), "g"));
     let newString = string;
 
       if (britMatches) {
