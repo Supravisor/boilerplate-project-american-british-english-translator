@@ -25,7 +25,7 @@ module.exports = function (app) {
         let translated = translator.amer2Brit(text);
 
         if (text === translated) {
-          return res.json({ translation: "Everything looks good to me!" });
+          return res.json({ text: text, translation: "Everything looks good to me!" });
         } else {
             return res.json({ text: text, translation: translated });
         }
@@ -36,7 +36,7 @@ module.exports = function (app) {
         let translated = translator.brit2Amer(text);
 
         if (text === translated) {
-          return res.json({ translation: "Everything looks good to me!" });
+          return res.json({ text: text, translation: "Everything looks good to me!" });
         } else {
             return res.json({ text: text, translation: translated });
         }
