@@ -32,7 +32,7 @@ class Translator {
       if (titleMatches) {
         titleMatches = titleMatches.map(el => el.replaceAll(" " , ""));
         for (let i = 0; i < titleMatches.length; i++) {
-          if (titleMatches[i]) {
+          if (titleMatches[i].includes(".")) {
             newString = newString.replace(titleMatches[i], `<span class="highlight">${americanToBritishTitles[titleMatches[i].toLowerCase()][0].toUpperCase()}${americanToBritishTitles[titleMatches[i].toLowerCase()].slice(1, 4)}</span>`);
           }
         }
