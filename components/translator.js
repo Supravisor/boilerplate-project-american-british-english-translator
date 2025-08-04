@@ -37,6 +37,14 @@ class Translator {
         }
       }
 
+    let time = string.match(/\d+\:\d+/, "g");
+
+      if (time) {
+        for (let i = 0; i < time.length; i++) {
+          newString = newString.replace(time[i], `<span class="highlight">${time[i].replace(":", ".")}</span>`);
+        }
+      }
+
     return newString;
   }
 
