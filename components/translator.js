@@ -29,7 +29,7 @@ class Translator {
     let titles = Object.keys(americanToBritishTitles)
     let titleMatches = newString.match(new RegExp(titles.join("|"), "gi"));
 
-    if (titleMatches) {
+      if (titleMatches) {
         for (let i = 0; i < titleMatches.length; i++) {
           if (titleMatches[i]) {
             newString = newString.replace(titleMatches[i], `<span class="highlight">${americanToBritishTitles[titleMatches[i].toLowerCase()][0].toUpperCase()}${americanToBritishTitles[titleMatches[i].toLowerCase()].slice(1, 4)}</span>`);
@@ -44,6 +44,12 @@ class Translator {
     let brit = Object.keys(britishOnly);
     let matches = string.match(new RegExp(brit.join("|"), "g"));
     let newString = string;
+
+      if (britMatches) {
+        for (let i = 0; i < britMatches.length; i++) {
+          newString = newString.replace(britMatches[i], `<span class="highlight">${britishOnly[britMatches[i]]}</span>`);
+        }
+      }
 
     return newString;
   }
