@@ -30,6 +30,7 @@ class Translator {
     let titleMatches = newString.match(new RegExp(titles.join("|"), "gi"));
 
       if (titleMatches) {
+        titleMatches = titleMatches.map(el => el.replaceAll(" " , ""));
         for (let i = 0; i < titleMatches.length; i++) {
           if (titleMatches[i]) {
             newString = newString.replace(titleMatches[i], `<span class="highlight">${americanToBritishTitles[titleMatches[i].toLowerCase()][0].toUpperCase()}${americanToBritishTitles[titleMatches[i].toLowerCase()].slice(1, 4)}</span>`);
