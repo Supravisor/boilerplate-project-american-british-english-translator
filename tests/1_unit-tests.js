@@ -18,4 +18,10 @@ suite('Unit Tests', () => {
     done();
   });
 
+  test("Translate We had a party at my friend's condo. to British English", (done) => {
+    const text = "We had a party at my friend's condo.";
+    assert.include(translator.amer2Brit(text), 'We had a party at my friend\'s <span class="highlight">flat</span>.');
+    done();
+  });
+
 });
