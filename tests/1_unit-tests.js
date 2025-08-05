@@ -30,4 +30,10 @@ suite('Unit Tests', () => {
     done();
   });
 
+  test('Translate The parking lot was full. to British English', (done) => {
+    const text = 'The parking lot was full.';
+    assert.include(translator.amer2Brit(text), 'The <span class="highlight">car park</span> was full.');
+    done();
+  });
+
 });
