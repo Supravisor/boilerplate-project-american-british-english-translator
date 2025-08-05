@@ -42,7 +42,6 @@ suite('Unit Tests', () => {
     done();
   });
 
-
   test('Translate To play hooky means to skip class or work. to British English', (done) => {
     const text = 'To play hooky means to skip class or work.';
     assert.include(translator.amer2Brit(text), 'To <span class="highlight">bunk off</span> means to skip class or work.');
@@ -52,6 +51,12 @@ suite('Unit Tests', () => {
   test('Translate No Mr. Bond, I expect you to die. to British English', (done) => {
     const text = 'No Mr. Bond, I expect you to die.';
     assert.include(translator.amer2Brit(text), 'No <span class="highlight">Mr</span> Bond, I expect you to die.');
+    done();
+  });
+
+  test('Translate Dr. Grosh will see you now. to British English', (done) => {
+    const text = 'Dr. Grosh will see you now.';
+    assert.include(translator.amer2Brit(text), '<span class="highlight">Dr</span> Grosh will see you now.');
     done();
   });
 
