@@ -24,4 +24,10 @@ suite('Unit Tests', () => {
     done();
   });
 
+  test('Translate Can you toss this in the trashcan for me? to British English', (done) => {
+    const text = 'Can you toss this in the trashcan for me?';
+    assert.include(translator.amer2Brit(text), 'Can you toss this in the <span class="highlight">rubbish</span>can for me?');
+    done();
+  });
+
 });
