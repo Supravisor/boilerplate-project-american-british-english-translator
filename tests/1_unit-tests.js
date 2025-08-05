@@ -42,4 +42,11 @@ suite('Unit Tests', () => {
     done();
   });
 
+
+  test('Translate To play hooky means to skip class or work. to British English', (done) => {
+    const text = 'To play hooky means to skip class or work.';
+    assert.include(translator.amer2Brit(text), 'To <span class="highlight">bunk off</span> means to skip class or work.');
+    done();
+  });
+
 });
