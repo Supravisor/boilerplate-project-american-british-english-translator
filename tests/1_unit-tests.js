@@ -36,4 +36,10 @@ suite('Unit Tests', () => {
     done();
   });
 
+  test('Translate Like a high tech Rube Goldberg machine. to British English', (done) => {
+    const text = 'Like a high tech Rube Goldberg machine.';
+    assert.include(translator.amer2Brit(text), 'Like a high tech Rube Goldberg machine.');
+    done();
+  });
+
 });
