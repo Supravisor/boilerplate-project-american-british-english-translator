@@ -49,4 +49,10 @@ suite('Unit Tests', () => {
     done();
   });
 
+  test('Translate No Mr. Bond, I expect you to die. to British English', (done) => {
+    const text = 'No Mr. Bond, I expect you to die.';
+    assert.include(translator.amer2Brit(text), 'No <span class="highlight">Mr</span> Bond, I expect you to die.');
+    done();
+  });
+
 });
