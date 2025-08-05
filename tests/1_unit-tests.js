@@ -12,4 +12,10 @@ suite('Unit Tests', () => {
     done();
   });
 
+  test('Translate I ate yogurt for breakfast. to British English', (done) => {
+    const text = 'I ate yogurt for breakfast.';
+    assert.include(translator.amer2Brit(text), 'I ate <span class="highlight">yoghurt</span> for breakfast.');
+    done();
+  });
+
 });
