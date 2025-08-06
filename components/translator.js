@@ -84,7 +84,13 @@ class Translator {
       }
     }
 
-    let americanSpell = amerSpellMatches.map(word => findKeyByValue(americanToBritishSpelling, word));
+      if (amerSpellMatches) {
+        let americanSpell = amerSpellMatches.map(word => findKeyByValue(americanToBritishSpelling, word));
+
+        for (let i = 0; i < americanSpell.length; i++) {
+          newString = newString.replace(amerSpellMatches[i], `<span class="highlight">${americanSpell[i]}</span>`);
+        }
+      }
 
     let titles = Object.keys(americanToBritishTitles)
     let titleMatches = newString.match(new RegExp(titles.join("|"), "i"));
