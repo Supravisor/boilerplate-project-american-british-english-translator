@@ -84,6 +84,8 @@ class Translator {
       }
     }
 
+    let americanSpell = amerSpellMatches.map(word => findKeyByValue(americanToBritishSpelling, word));
+
     let titles = Object.keys(americanToBritishTitles)
     let titleMatches = newString.match(new RegExp(titles.join("|"), "i"));
 
