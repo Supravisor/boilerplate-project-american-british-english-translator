@@ -66,4 +66,10 @@ suite('Unit Tests', () => {
     done();
   });
 
+  test('Translate We watched the footie match for a while. to American English', (done) => {
+    const text = 'We watched the footie match for a while.';
+    assert.include(translator.brit2Amer(text), 'We watched the <span class="highlight">soccer</span> match for a while.');
+    done();
+  });
+
 });
