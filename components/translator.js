@@ -62,8 +62,8 @@ class Translator {
           taParacetamol.push(splitString[i]);
         }
       }
+      britMatches = taParacetamol;
     }
-    britMatches = taParacetamol;
 
       if (britMatches) {
         for (let i = 0; i < britMatches.length; i++) {
