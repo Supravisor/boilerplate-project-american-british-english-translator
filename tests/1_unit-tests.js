@@ -90,4 +90,10 @@ suite('Unit Tests', () => {
     done();
   });
 
+  test('Translate I had a bicky then went to the chippy. to American English', (done) => {
+    const text = 'I had a bicky then went to the chippy.';
+    assert.include(translator.brit2Amer(text), 'I had a <span class="highlight">cookie</span> then went to the <span class="highlight">fish-and-chip shop</span>.');
+    done();
+  });
+
 });
