@@ -96,4 +96,10 @@ suite('Unit Tests', () => {
     done();
   });
 
+  test("Translate I've just got bits and bobs in my bum bag. to American English", (done) => {
+    const text = "I've just got bits and bobs in my bum bag.";
+    assert.include(translator.brit2Amer(text), "I've just got <span class=\"highlight\">odds and ends</span> in my <span class=\"highlight\">fanny pack</span>.");
+    done();
+  });
+
 });
