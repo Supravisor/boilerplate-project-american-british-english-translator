@@ -84,4 +84,10 @@ suite('Unit Tests', () => {
     done();
   });
 
+  test('Translate I spent the bank holiday at the funfair. to American English', (done) => {
+    const text = 'I spent the bank holiday at the funfair.';
+    assert.include(translator.brit2Amer(text), 'I spent the <span class="highlight">public holiday</span> at the <span class="highlight">carnival</span>.');
+    done();
+  });
+
 });
