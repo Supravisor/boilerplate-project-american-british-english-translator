@@ -60,4 +60,10 @@ suite('Unit Tests', () => {
     done();
   });
 
+  test('Translate Lunch is at 12:15 today. to British English', (done) => {
+    const text = 'Lunch is at 12:15 today.';
+    assert.include(translator.amer2Brit(text), 'Lunch is at <span class="highlight">12.15</span> today.');
+    done();
+  });
+
 });
