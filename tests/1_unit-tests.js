@@ -78,4 +78,10 @@ suite('Unit Tests', () => {
     done();
   });
 
+  test('Translate First, caramelise the onions. to American English', (done) => {
+    const text = 'First, caramelise the onions.';
+    assert.include(translator.brit2Amer(text), 'First, <span class="highlight">caramelize</span> the onions.');
+    done();
+  });
+
 });
