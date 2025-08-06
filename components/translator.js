@@ -51,8 +51,25 @@ class Translator {
 
   brit2Amer(string) {
     let brit = Object.keys(britishOnly);
-    let britMatches = string.match(new RegExp(brit.join("|"), "g"));
+    let britMatches = string.match(new RegExp(brit.join("|"), "gi"));
     let newString = string;
+
+    let taParacetamol = [];
+    if (/\s+ta|Paracetamol/.test(britMatches)) {
+      let splitString = newString.split(" ");
+      for (let i=0; i < splitString.length; i++) {
+        if (new RegExp(splitString[i]).test(britMatches)) {
+          taParacetamol.push(splitString[i]);
+        }
+      }
+      britMatches = taParacetamol;
+    }
+
+      if (britMatches) {
+        for (let i = 0; i < britMatches.length; i++) {
+          newString = newString.replace(britMatches[i], `<span class="highlight">${britishOnly[britMatches[i].toLowerCase()]}</span>`);
+        }
+      }
 
       if (britMatches) {
         for (let i = 0; i < britMatches.length; i++) {
