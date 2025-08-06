@@ -71,11 +71,8 @@ class Translator {
         }
       }
 
-      if (britMatches) {
-        for (let i = 0; i < britMatches.length; i++) {
-          newString = newString.replace(britMatches[i], `<span class="highlight">${britishOnly[britMatches[i]]}</span>`);
-        }
-      }
+    let amerSpell = Object.values(americanToBritishSpelling);
+    let amerSpellMatches = string.match(new RegExp(amerSpell.join("|"), "g"));
 
     let titles = Object.keys(americanToBritishTitles)
     let titleMatches = newString.match(new RegExp(titles.join("|"), "i"));
