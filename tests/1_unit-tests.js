@@ -108,4 +108,10 @@ suite('Unit Tests', () => {
     done();
   });
 
+  test('Translate Have you met Mrs Kalyani? to American English', (done) => {
+    const text = 'Have you met Mrs Kalyani?';
+    assert.include(translator.brit2Amer(text), 'Have you met <span class="highlight">Mrs.</span> Kalyani?');
+    done();
+  });
+
 });
