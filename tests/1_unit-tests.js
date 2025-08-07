@@ -126,4 +126,10 @@ suite('Unit Tests', () => {
     done();
   });
 
+  test('Highlight translation in Mangoes are my favorite fruit.', (done) => {
+    const text = 'Mangoes are my favorite fruit.';
+    assert.include(translator.amer2Brit(text), '<span class="highlight">favourite</span>');
+    done();
+  });
+
 });
