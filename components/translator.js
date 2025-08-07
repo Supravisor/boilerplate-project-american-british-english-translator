@@ -105,6 +105,12 @@ class Translator {
           }
       }
 
+      if (titleMatcher) {
+        for (let i = 0; i < titleMatcher.length; i++) {
+           newString = newString.replace(titleMatcher[i], `<span class="highlight">${americanToBritishTitles[titleMatcher[i].toLowerCase()+"."][0].toUpperCase()}${americanToBritishTitles[titleMatcher[i].toLowerCase()+"."].slice(1, 4)}.</span>`);
+         }
+      }
+
     let time = string.match(/\d+\.\d+/, "g");
 
       if (time) {
