@@ -144,4 +144,10 @@ suite('Unit Tests', () => {
     done();
   });
 
+  test('Highlight translation in Paracetamol takes up to an hour to work.', (done) => {
+    const text = 'Paracetamol takes up to an hour to work.';
+    assert.include(translator.brit2Amer(text), '<span class="highlight">Tylenol</span>');
+    done();
+  });
+
 });
