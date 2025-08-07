@@ -132,4 +132,16 @@ suite('Unit Tests', () => {
     done();
   });
 
+  test('Highlight translation in I ate yogurt for breakfast.', (done) => {
+    const text = 'I ate yogurt for breakfast.';
+    assert.include(translator.amer2Brit(text), '<span class="highlight">yoghurt</span>');
+    done();
+  });
+
+  test('Highlight translation in We watched the footie match for a while.', (done) => {
+    const text = 'We watched the footie match for a while.';
+    assert.include(translator.brit2Amer(text), '<span class="highlight">soccer</span>');
+    done();
+  });
+
 });
