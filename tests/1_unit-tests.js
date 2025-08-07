@@ -120,4 +120,10 @@ suite('Unit Tests', () => {
     done();
   });
 
+  test('Translate Tea time is usually around 4 or 4.30. to American English', (done) => {
+    const text = 'Tea time is usually around 4 or 4.30.';
+    assert.include(translator.brit2Amer(text), 'Tea time is usually around 4 or <span class="highlight">4:30</span>.');
+    done();
+  });
+
 });
