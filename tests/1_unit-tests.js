@@ -114,4 +114,10 @@ suite('Unit Tests', () => {
     done();
   });
 
+  test("Translate Prof Joyner of King's College, London. to American English", (done) => {
+    const text = "Prof Joyner of King's College, London.";
+    assert.include(translator.brit2Amer(text), "<span class=\"highlight\">Prof.</span> Joyner of King's College, London.");
+    done();
+  });
+
 });
