@@ -102,4 +102,10 @@ suite('Unit Tests', () => {
     done();
   });
 
+  test('Translate The car boot sale at Boxted Airfield was called off. to American English', (done) => {
+    const text = 'The car boot sale at Boxted Airfield was called off.';
+    assert.include(translator.brit2Amer(text), 'The <span class="highlight">swap meet</span> at Boxted Airfield was called off.');
+    done();
+  });
+
 });
